@@ -12,11 +12,20 @@ function skor_terbesar($arr){
 $temp;
 for($i=0;$i<count($arr);$i++){
     for($y=0;$y<count($arr[$i]);$y++){
+        if($arr[$y]["kelas"] === $arr[$y+1]["kelas"] ){
+            if($arr[$y]["nilai"]<$arr[$y+1]["nilai"]){
+                $temp = $arr[$y];
+                $arr[$y] = $arr[$y+1];
+                $arr[$y+1] = $temp;
+            }
+        }
+        
         if($arr[$y]["nilai"]<$arr[$y+1]["nilai"]){
             $temp = $arr[$y];
             $arr[$y] = $arr[$y+1];
             $arr[$y+1] = $temp;
         }
+        
     }
 }
 for($i=0;$i<3;$i++){
